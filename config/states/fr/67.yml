@@ -1,0 +1,7 @@
+---
+days:
+  - name: Good Friday
+    method: easter_day(year) - 2.days
+  - name: St. Stephen's Day
+    day: 26
+    month: 12

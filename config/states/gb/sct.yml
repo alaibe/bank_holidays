@@ -1,0 +1,10 @@
+---
+days:
+  - name: 2nd January
+    month: 1
+    day: 2
+  - name: Summer bank holiday
+    method: first_monday(year, 8)
+  - name: St Andrew’s Day
+    month: 11
+    day: 30
