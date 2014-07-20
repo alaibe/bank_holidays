@@ -1,0 +1,11 @@
+div class="row"
+  div class="col-md-offset-3 col-md-6"
+    div class="panel panel-primary"
+      div class="panel-heading"
+        = bank_holiday.name
+      div class="panel-body"
+        div class="row"
+        div class="col-md-6"
+          = l bank_holiday.on, format: :long
+        div class="col-md-6 text-right"
+          = bank_holiday.place

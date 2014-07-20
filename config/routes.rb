@@ -4,4 +4,5 @@ Rails.application.routes.draw do
 
   resources :searchs, only: [:new, :create]
 
+  get 'searchs' => 'searchs#create'
 end

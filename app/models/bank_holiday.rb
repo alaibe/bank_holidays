@@ -5,4 +5,15 @@ class BankHoliday < ActiveRecord::Base
 
   belongs_to :have_bank_holiday, polymorphic: true
 
+  class << self
+
+    def years
+      pluck(:on).map(&:year).uniq
+    end
+
+  end
+
+  def place
+    have_bank_holiday.name
+  end
 end

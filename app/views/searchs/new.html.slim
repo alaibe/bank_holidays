@@ -1,0 +1,19 @@
+div class="search-new text-center"
+  h1 Bank Holidays
+  = form_tag searchs_path, remote: true, authenticity_token: true, role: 'form', class: 'search-form form-inline' do
+
+    div class="form-group"
+      div class="input-group"
+        = text_field_tag :date, nil, :'data-behaviour' => 'datepicker', class: 'form-control input-lg', placeholder: 'Choose a date'
+
+    div class="form-group"
+      h4 OR
+
+    div class="form-group"
+      div class="input-group"
+        = select_tag :year, options_for_select(BankHoliday.years), class: 'form-control input-lg', placeholder: 'Choose a year'
+
+
+    = submit_tag 'Go', class: 'btn btn-default btn-lg'
+
+div class="results"

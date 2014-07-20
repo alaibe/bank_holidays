@@ -39,3 +39,9 @@ gem 'spring',        group: :development
 gem 'debugger', group: [:development, :test]
 
 gem 'friendly_id'
+gem 'slim'
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
+gem 'bootstrap-datepicker-rails'
+gem "select2-rails"
+gem 'rabl'
