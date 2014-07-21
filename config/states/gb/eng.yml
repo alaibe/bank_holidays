@@ -3,4 +3,6 @@ days:
   - name: Easter Monday
     method: easter_day(year) + 1.day
   - name: Summer bank holiday
-    method: last_monday(year, 8)
+    wday: 1
+    month: 8
+    week: -1

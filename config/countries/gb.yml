@@ -7,9 +7,12 @@ days:
   - name: Good Friday
     method: easter_day(year) - 2.days
   - name: Early May bank holiday
-    method: first_monday(year, 5)
+    wday: 1
+    month: 5
   - name: Spring bank holiday
-    method: last_monday(year, 5)
+    wday: 1
+    month: 5
+    week: -1
   - name: Christmas Day
     day: 25
     month: 12

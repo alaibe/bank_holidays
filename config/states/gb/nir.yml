@@ -9,4 +9,6 @@ days:
     month:7
     day: 12
   - name: Summer bank holiday
-    method: last_monday(year, 8)
+    wday: 1
+    month: 8
+    week: -1

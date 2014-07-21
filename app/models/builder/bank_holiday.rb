@@ -4,6 +4,8 @@ class Builder::BankHoliday < Struct.new(:parser, :country)
     parser.each_days do |day_builder|
       on = if day_builder.day?
         Date.new year, day_builder.month, day_builder.day
+      elsif if day_builder.wday?
+        date_from_wday(year, day_builder.month, day_builder.wday, day_builder.week)
       else
         eval day_builder.method
       end
@@ -15,13 +17,15 @@ class Builder::BankHoliday < Struct.new(:parser, :country)
     end
   end
 
-  def first_monday(year, month)
-    start = Date.new(year, month)
-    start.upto(start.next_week).find(&:monday?)
+  def date_from_wday(year, month, wday, week)
+    return last_date_from_wday(year, month, wday) if week == -1
+
+    date = Date.civil(year, month, (week-1)*7 + 1)
+    date.upto(date.next_week).find { |d| d.wday == wday }
   end
 
-  def last_monday(year, month)
-    Date.new(year, month, -1).downto(0).find(&:monday?)
+  def last_date_from_wday(year, month, wday)
+    Date.new(year, month, -1).downto(0).find { |d| d.wday == wday }
   end
 
   def easter_day(year)
