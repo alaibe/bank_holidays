@@ -3,7 +3,7 @@ class BankHoliday < ActiveRecord::Base
 
   friendly_id :name, use: :slugged
 
-  belongs_to :have_bank_holiday, polymorphic: true
+  belongs_to :place, polymorphic: true
 
   class << self
 
@@ -13,7 +13,7 @@ class BankHoliday < ActiveRecord::Base
 
   end
 
-  def place
-    have_bank_holiday.name
+  def place_name
+    place.name
   end
 end

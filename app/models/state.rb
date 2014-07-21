@@ -1,9 +1,5 @@
-class State
-  extend FriendlyId
+class State < ActiveRecord::Base
+  include Concerns::Place
 
-  friendly_id :name, use: :slugged
-
-  belong_to :country
-
-  has_many :bank_holidays, as: :have_bank_holiday
+  belongs_to :country
 end

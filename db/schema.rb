@@ -16,16 +16,17 @@ ActiveRecord::Schema.define(version: 20140720104036) do
   create_table "bank_holidays", force: true do |t|
     t.string  "name"
     t.date    "on"
-    t.integer "have_bank_holiday_id"
-    t.string  "have_bank_holiday_type"
-    t.boolean "informal",               default: false
+    t.integer "place_id"
+    t.string  "place_type"
+    t.boolean "informal",   default: false
     t.string  "slug"
   end
 
   create_table "countries", force: true do |t|
-    t.string "name"
-    t.string "iso"
-    t.string "slug"
+    t.string  "name"
+    t.string  "iso"
+    t.string  "slug"
+    t.boolean "activated", default: false
   end
 
   create_table "friendly_id_slugs", force: true do |t|

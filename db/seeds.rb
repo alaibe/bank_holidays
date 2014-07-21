@@ -5,6 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Country.delete_all
+State.delete_all
+BankHoliday.delete_all
 
 Country.create!(name: 'Afghanistan', iso: 'AF')
 Country.create!(name: 'Åland Islands', iso: 'AX')
@@ -81,7 +84,7 @@ Country.create!(name: 'Falkland Islands (Malvinas)', iso: 'FK')
 Country.create!(name: 'Faroe Islands', iso: 'FO')
 Country.create!(name: 'Fiji', iso: 'FJ')
 Country.create!(name: 'Finland', iso: 'FI')
-Country.create!(name: 'France', iso: 'FR')
+Country.create!(name: 'France', iso: 'FR', activated: true)
 Country.create!(name: 'French Guiana', iso: 'GF')
 Country.create!(name: 'French Polynesia', iso: 'PF')
 Country.create!(name: 'French Southern Territories', iso: 'TF')
@@ -240,7 +243,7 @@ Country.create!(name: 'Tuvalu', iso: 'TV')
 Country.create!(name: 'Uganda', iso: 'UG')
 Country.create!(name: 'Ukraine', iso: 'UA')
 Country.create!(name: 'United Arab Emirates', iso: 'AE')
-Country.create!(name: 'United Kingdom', iso: 'GB')
+Country.create!(name: 'United Kingdom', iso: 'GB', activated: true)
 Country.create!(name: 'United States', iso: 'US')
 Country.create!(name: 'United States Minor Outlying Islands', iso: 'UM')
 Country.create!(name: 'Uruguay', iso: 'UY')
@@ -256,13 +259,21 @@ Country.create!(name: 'Yemen', iso: 'YE')
 Country.create!(name: 'Zambia', iso: 'ZM')
 Country.create!(name: 'Zimbabwe', iso: 'ZW')
 
-gb = Country.find(iso: 'GB')
+gb = Country.find_by(iso: 'GB')
 State.create!(name: 'England', iso: "ENG", country_id: gb)
 State.create!(name: 'Scotland', iso: "SCT", country_id: gb)
 State.create!(name: 'Wales', iso: "WLS", country_id: gb)
 State.create!(name: 'N Ireland', iso: "NIR", country_id: gb)
 
-fr = Country.find(iso: 'FR')
+fr = Country.find_by(iso: 'FR')
 State.create!(name: 'Moselle', iso: "57", country_id: fr)
 State.create!(name: 'Bas-Rhin', iso: "67", country_id: fr)
 State.create!(name: 'Haut-Rhin', iso: "68", country_id: fr)
+
+years = (1990..2100).to_a
+Country.where(activated: true).each do |country|
+  years.each do |year|
+    country.generate(year)
+    country.states.each { |states| state.generate(year) }
+  end
+end

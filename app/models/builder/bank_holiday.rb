@@ -11,7 +11,7 @@ class Builder::BankHoliday < Struct.new(:parser, :country)
       ::BankHoliday.create!(name: day_builder.name,
                             on: on,
                             informal: day_builder.informal?,
-                            have_bank_holiday: country)
+                            place: country)
     end
   end
 
