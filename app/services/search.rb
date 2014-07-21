@@ -4,7 +4,7 @@ class Search
 
   def initialize(date = nil, year = nil, countries = [])
     @date      = date
-    @year      = year
+    @year     = year
     @countries = countries
   end
 

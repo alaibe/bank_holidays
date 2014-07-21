@@ -2,18 +2,22 @@ class Builder::BankHoliday < Struct.new(:parser, :country)
 
   def perform(year)
     parser.each_days do |day_builder|
-      on = if day_builder.day?
-        Date.new year, day_builder.month, day_builder.day
-      elsif if day_builder.wday?
-        date_from_wday(year, day_builder.month, day_builder.wday, day_builder.week)
-      else
-        eval day_builder.method
-      end
+      on = build_on(year, day_builder)
 
       ::BankHoliday.create!(name: day_builder.name,
                             on: on,
                             informal: day_builder.informal?,
                             place: country)
+    end
+  end
+
+  def build_on(year, day_builder)
+    if day_builder.day?
+      Date.new year, day_builder.month, day_builder.day
+    elsif day_builder.wday?
+      date_from_wday(year, day_builder.month, day_builder.wday, day_builder.week)
+    else
+      eval day_builder.method
     end
   end
 

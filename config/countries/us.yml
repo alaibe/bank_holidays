@@ -1,0 +1,38 @@
+---
+substitute: true
+days:
+  - name: New Year’s Day
+    day: 1
+    month: 1
+  - name: Birthday of Martin Luther King, Jr.
+    wday: 1
+    month: 1
+    week: 3
+  - name: Washington's Birthday
+    wday: 1
+    month: 2
+    week: 3
+  - name: Memorial Day
+    wday: 1
+    month: 5
+    week: -1
+  - name: Independence Day
+    day: 4
+    month: 7
+  - name: Labor Day
+    wday: 1
+    month: 9
+  - name: Columbus Day
+    wday: 1
+    month: 10
+    week: 2
+  - name: Veterans Day
+    day: 11
+    month: 11
+  - name: Thanksgiving Day
+    wday: 4
+    month: 11
+    week: 4
+  - name: Christmas
+    day: 25
+    month: 12

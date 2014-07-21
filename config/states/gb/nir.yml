@@ -6,7 +6,7 @@ days:
   - name: Easter Monday
     method: easter_day(year) + 1.day
   - name: Battle of the Boyne (Orangemen’s Day)
-    month:7
+    month: 7
     day: 12
   - name: Summer bank holiday
     wday: 1

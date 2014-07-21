@@ -14,6 +14,6 @@ class BankHoliday < ActiveRecord::Base
   end
 
   def place_name
-    place.name
+    place.fullname
   end
 end

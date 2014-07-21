@@ -11,7 +11,7 @@ div class="search-new text-center"
 
     div class="form-group"
       div class="input-group"
-        = select_tag :year, options_for_select(BankHoliday.years), class: 'form-control input-lg', placeholder: 'Choose a year'
+        = select_tag :year, options_for_select(BankHoliday.years), :'data-behaviour' => 'select2', class: 'form-control input-lg', placeholder: 'Choose a year', include_blank: true
 
 
     = submit_tag 'Go', class: 'btn btn-default btn-lg'

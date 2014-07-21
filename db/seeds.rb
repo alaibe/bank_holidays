@@ -260,20 +260,20 @@ Country.create!(name: 'Zambia', iso: 'ZM')
 Country.create!(name: 'Zimbabwe', iso: 'ZW')
 
 gb = Country.find_by(iso: 'GB')
-State.create!(name: 'England', iso: "ENG", country_id: gb)
-State.create!(name: 'Scotland', iso: "SCT", country_id: gb)
-State.create!(name: 'Wales', iso: "WLS", country_id: gb)
-State.create!(name: 'N Ireland', iso: "NIR", country_id: gb)
+State.create!(name: 'England', iso: "ENG", country_id: gb.id)
+State.create!(name: 'Scotland', iso: "SCT", country_id: gb.id)
+State.create!(name: 'Wales', iso: "WLS", country_id: gb.id)
+State.create!(name: 'N Ireland', iso: "NIR", country_id: gb.id)
 
 fr = Country.find_by(iso: 'FR')
-State.create!(name: 'Moselle', iso: "57", country_id: fr)
-State.create!(name: 'Bas-Rhin', iso: "67", country_id: fr)
-State.create!(name: 'Haut-Rhin', iso: "68", country_id: fr)
+State.create!(name: 'Moselle', iso: "57", country_id: fr.id)
+State.create!(name: 'Bas-Rhin', iso: "67", country_id: fr.id)
+State.create!(name: 'Haut-Rhin', iso: "68", country_id: fr.id)
 
 years = (1990..2100).to_a
 Country.where(activated: true).each do |country|
   years.each do |year|
     country.generate(year)
-    country.states.each { |states| state.generate(year) }
+    country.states.each { |state| state.generate(year) }
   end
 end

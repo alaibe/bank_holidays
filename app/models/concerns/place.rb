@@ -26,7 +26,4 @@ module Concerns::Place
     @yaml ||= YAML.load file
   end
 
-  def file
-    @file ||= File.new(File.join Rails.root, "config/#{self.class.table_name}/#{iso.downcase}.yml")
-  end
 end
