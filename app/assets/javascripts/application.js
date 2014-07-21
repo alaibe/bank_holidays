@@ -17,4 +17,4 @@
 //= require bootstrap-datepicker
 //= require select2
 
-//= require searchs
+//= require bank_holidays

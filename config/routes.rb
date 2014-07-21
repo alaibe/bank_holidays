@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
 
-  root 'searchs#new'
+  root 'bank_holidays#index'
 
-  resources :searchs, only: [:new, :create]
+  resources :bank_holidays, only: :index
 
-  get 'searchs' => 'searchs#create'
 end

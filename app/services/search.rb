@@ -8,7 +8,7 @@ class Search
     @countries = countries
   end
 
-  def bank_holidays
+  def all
     if on
       BankHoliday.where(on: on)
     elsif year

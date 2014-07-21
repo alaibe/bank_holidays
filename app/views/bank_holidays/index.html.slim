@@ -1,6 +1,6 @@
 div class="search-new text-center"
   h1 Bank Holidays
-  = form_tag searchs_path, remote: true, authenticity_token: true, role: 'form', class: 'search-form form-inline' do
+  = form_tag bank_holidays_path, method: :get, remote: true, authenticity_token: true, role: 'form', class: 'search-form form-inline' do
 
     div class="form-group"
       div class="input-group"
