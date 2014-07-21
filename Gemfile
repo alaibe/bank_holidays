@@ -46,3 +46,4 @@ gem 'autoprefixer-rails'
 gem 'bootstrap-datepicker-rails'
 gem "select2-rails"
 gem 'rabl'
+gem 'rails_12factor', group: :production
