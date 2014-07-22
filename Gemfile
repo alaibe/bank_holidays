@@ -49,3 +49,8 @@ gem 'rabl'
 gem 'rails_12factor', group: :production
 gem 'puma'
 gem 'svg-flags-rails'
+
+gem "pry", group: :development
+gem 'pry-stack_explorer', group: :development
+gem 'pry-debugger', group: :development
+gem 'pry-rails', group: :development

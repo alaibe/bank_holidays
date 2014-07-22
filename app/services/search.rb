@@ -1,23 +1,47 @@
 class Search
 
-  attr_reader :date, :year, :countries
+  attr_reader :date, :year, :scope
 
-  def initialize(date = nil, year = nil, countries = [])
-    @date      = date
-    @year     = year
-    @countries = countries
+  def initialize(date, year, country_isos)
+    @date         = date
+    @year         = year
+    @country_isos = country_isos || []
+    @scope        = BankHoliday
   end
 
   def all
-    if on
-      BankHoliday.where(on: on)
-    elsif year
-      date = Date.new year.to_i
-      BankHoliday.where(on: date.beginning_of_year..date.end_of_year)
-    end
+    @all ||= by_date.by_year.by_country.scope
   end
 
-  private
+  def countries
+    @countries ||= Country.where(iso: @country_isos)
+  end
+
+  def states
+    @states ||= State.where(country: countries)
+  end
+
+  def by_date
+    return self if !on.present?
+    @scope = @scope.where(on: on)
+
+    self
+  end
+
+  def by_year
+    return self if on.present? || year.nil?
+    date = Date.new year.to_i
+    @scope = @scope.where(on: date.beginning_of_year..date.end_of_year)
+
+    self
+  end
+
+  def by_country
+    return self if countries.empty?
+    @scope = @scope.where(place_id: countries, place_type: 'Country')
+
+    self
+  end
 
   def on
     @on ||= Date.parse date rescue nil
