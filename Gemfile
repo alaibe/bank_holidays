@@ -48,3 +48,4 @@ gem "select2-rails"
 gem 'rabl'
 gem 'rails_12factor', group: :production
 gem 'puma'
+gem 'svg-flags-rails'

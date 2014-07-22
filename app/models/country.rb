@@ -3,6 +3,8 @@ class Country < ActiveRecord::Base
 
   has_many :states
 
+  scope :activated, ->{ where(activated: true) }
+
   def fullname
     name
   end

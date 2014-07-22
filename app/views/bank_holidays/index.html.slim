@@ -1,6 +1,13 @@
 div class="search-new text-center"
   h1 Bank Holidays
+
   = form_tag bank_holidays_path, method: :get, remote: true, authenticity_token: true, role: 'form', class: 'search-form form-inline' do
+
+    div class="checkbox"
+      - Country.activated.each do |country|
+        label
+          = check_box_tag 'countries[]', country.iso, @bank_holidays.countries
+          = image_tag "country-4x3/#{country.iso.downcase}.svg", width: 30, alt: country.name
 
     div class="form-group"
       div class="input-group"
@@ -11,7 +18,7 @@ div class="search-new text-center"
 
     div class="form-group"
       div class="input-group"
-        = select_tag :year, options_for_select(BankHoliday.years), :'data-behaviour' => 'select2', class: 'form-control input-lg', placeholder: 'Choose a year', include_blank: true
+        = select_tag :year, options_for_select(BankHoliday.years), :'data-behaviour' => 'select2', class: 'form-control', placeholder: 'a year', include_blank: true
 
 
     = submit_tag 'Go', class: 'btn btn-default btn-lg'

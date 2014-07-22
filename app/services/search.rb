@@ -1,6 +1,6 @@
 class Search
 
-  attr_reader :date, :year
+  attr_reader :date, :year, :countries
 
   def initialize(date = nil, year = nil, countries = [])
     @date      = date
