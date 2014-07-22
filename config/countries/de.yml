@@ -1,0 +1,26 @@
+---
+substitute: false
+days:
+  - name: New Year’s Day
+    day: 1
+    month: 1
+  - name: Good Friday
+    method: easter_day(year) - 2.days
+  - name: Easter Monday
+    method: easter_day(year) + 1.day
+  - name: Labour Day
+    month: 5
+    day: 1
+  - name: Ascension Day
+    method: easter_day(year) + 39.days
+  - name: Whit Monday
+    method: easter_day(year) + 50.days
+  - name: German Unity Day
+    month: 10
+    day: 3
+  - name: Christmas Day
+    day: 25
+    month: 12
+  - name: St Stephen's Day
+    day: 26
+    month: 12

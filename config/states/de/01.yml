@@ -1,0 +1,10 @@
+---
+days:
+  - name: Epiphany
+    day: 6
+    month: 1
+  - name: Corpus Christi
+    method: easter_day(year) + 60.days
+  - name: All Saints
+    day: 1
+    month: 11

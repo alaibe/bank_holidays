@@ -5,6 +5,8 @@ class BankHoliday < ActiveRecord::Base
 
   belongs_to :place, polymorphic: true
 
+  validates :on, presence: true
+
   class << self
 
     def years

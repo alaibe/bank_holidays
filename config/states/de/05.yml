@@ -1,0 +1,4 @@
+---
+days:
+  - name: Corpus Christi
+    method: easter_day(year) + 60.days

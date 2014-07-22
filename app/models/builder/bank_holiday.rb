@@ -25,11 +25,16 @@ class Builder::BankHoliday < Struct.new(:parser, :country)
     return last_date_from_wday(year, month, wday) if week == -1
 
     date = Date.civil(year, month, (week-1)*7 + 1)
-    date.upto(date.next_week).find { |d| d.wday == wday }
+    date.upto(date + 1.week).find { |d| d.wday == wday }
   end
 
   def last_date_from_wday(year, month, wday)
     Date.new(year, month, -1).downto(0).find { |d| d.wday == wday }
+  end
+
+  def day_before(year, month, day, wday)
+    date = Date.new year, month, day
+    date.downto(0).find { |d| d.wday == wday }
   end
 
   def easter_day(year)

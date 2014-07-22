@@ -1,0 +1,7 @@
+---
+days:
+  - name: Reformation Day
+    day: 31
+    month: 10
+  - name: Day of Repentance and Prayer
+    method: day_before(year, 11, 23, 3)

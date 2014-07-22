@@ -1,0 +1,10 @@
+---
+days:
+  - name: Corpus Christi
+    method: easter_day(year) + 60.days
+  - name: Assumption Day
+    day: 15
+    month: 8
+  - name: All Saints
+    day: 1
+    month: 11
