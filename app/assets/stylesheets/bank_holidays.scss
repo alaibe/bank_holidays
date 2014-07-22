@@ -1,39 +1,25 @@
-.search-new {
-
-}
-
 .search-form {
   margin-top: 40px;
 
-  h4 {
-    margin-left: 10px;
-    margin-right: 10px;
+  .select2-container {
+    width: 218px;
+  }
+
+  .select2-choice,
+  .select2-search-field{
+    height: 42px;
+    width: 218px;
   }
 
   .btn {
-    margin-left: 10px;
+    margin-left: 25px;
   }
-
-  .select2-container {
-    width: 200px !important;
-  }
-
-  .checkbox label {
-    margin-left: 5px;
-    margin-right: 5px;
-
-    input {
-      display: none;
-    }
-  }
-
-
 }
 
 .results {
   margin-top: 40px;
 }
 
-.border {
-  border: 3px solid #000000;
+.display-none {
+  display: none;
 }
