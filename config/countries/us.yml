@@ -3,6 +3,7 @@ days:
   - name: New Year’s Day
     day: 1
     month: 1
+    substitute: closest_weekday
   - name: Birthday of Martin Luther King, Jr.
     wday: 1
     month: 1
@@ -18,6 +19,7 @@ days:
   - name: Independence Day
     day: 4
     month: 7
+    substitute: closest_weekday
   - name: Labor Day
     wday: 1
     month: 9
@@ -28,6 +30,7 @@ days:
   - name: Veterans Day
     day: 11
     month: 11
+    substitute: closest_weekday
   - name: Thanksgiving Day
     wday: 4
     month: 11
@@ -35,3 +38,4 @@ days:
   - name: Christmas
     day: 25
     month: 12
+    substitute: closest_weekday
