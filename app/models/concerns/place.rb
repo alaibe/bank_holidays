@@ -19,7 +19,7 @@ module Concerns::Place
   end
 
   def parser
-    @parser ||= ::Parser::Country.new yaml
+    @parser ||= ::Parser::Place.new yaml
   end
 
   def yaml

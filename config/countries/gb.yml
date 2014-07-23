@@ -1,9 +1,9 @@
 ---
-substitute: true
 days:
   - name: New Year’s Day
     day: 1
     month: 1
+    substitute: next_available_weekday
   - name: Good Friday
     method: easter_day(year) - 2.days
   - name: Early May bank holiday
@@ -16,6 +16,8 @@ days:
   - name: Christmas Day
     day: 25
     month: 12
+    substitute: next_available_weekday
   - name: Boxing Day
     day: 26
     month: 12
+    substitute: next_available_weekday

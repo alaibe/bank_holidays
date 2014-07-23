@@ -3,9 +3,11 @@ days:
   - name: 2nd January
     month: 1
     day: 2
+    substitute: next_available_weekday
   - name: Summer bank holiday
     wday: 1
     month: 8
   - name: St Andrew’s Day
     month: 11
     day: 30
+    substitute: next_available_weekday

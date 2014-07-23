@@ -36,4 +36,8 @@ class Parser::Day < Struct.new(:yaml_day)
     yaml_day["informal"] || false
   end
 
+  def substitute
+    yaml_day["substitue"]
+  end
+
 end
