@@ -6,11 +6,13 @@ class Search
     @date         = date
     @year         = year
     @country_isos = country_isos || []
-    @scope        = BankHoliday
+    @scopes       = BankHoliday
   end
 
   def all
-    @all ||= by_date.by_year.by_country.scope
+    @scopes.each do |scope|
+      by_date.by_year.by_country.scope
+    end
   end
 
   def countries
@@ -37,8 +39,16 @@ class Search
   end
 
   def by_country
-    return self if countries.empty?
-    @scope = @scope.where(place_id: countries, place_type: 'Country')
+    return self if countries.empty
+    ids = []
+    if countries.any?
+      ids << @scope.where(place_id: countries, place_type: 'Country').pluck(:id)
+    end
+
+    if states.any?
+      ids << = @scope.where(place_id: states, place_type: 'State').pluck(:id)
+    end
+    @scope += @scope.where(id: ids)
 
     self
   end
