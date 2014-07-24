@@ -1,12 +1,12 @@
 class Builder::Day
 
-  def get(year, day_builder)
-    if day_builder.day?
-      Date.new year, day_builder.month, day_builder.day
-    elsif day_builder.wday?
-      date_from_wday(year, day_builder.month, day_builder.wday, day_builder.week)
+  def get(year, parser_day)
+    if parser_day.day?
+      Date.new year, parser_day.month, parser_day.day
+    elsif parser_day.wday?
+      date_from_wday(year, parser_day.month, parser_day.wday, parser_day.week)
     else
-      eval day_builder.method
+      eval parser_day.method
     end
   end
 

@@ -1,9 +1,9 @@
 class Builder::Substitute < Struct.new(:place)
 
   def get(method, date)
-    return date if [0, 6].include? date.wday
+    return date if ![0, 6].include?(date.wday) || method.nil?
 
-    send method, date
+    send method.to_sym, date
   end
 
   def next_available_weekday(date)
@@ -13,7 +13,7 @@ class Builder::Substitute < Struct.new(:place)
       date + 1.day
     end
 
-    new_date + 1.day while place.bank_holidays.find_by(on: new_date)
+    new_date = new_date + 1.day while place.bank_holidays.find_by(on: new_date)
     new_date
   end
 

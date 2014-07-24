@@ -1,22 +1,23 @@
 class Builder::BankHoliday < Struct.new(:parser, :place)
 
   def perform(year)
-    parser.each_days do |day_builder|
-      on = day.get(year, day_builder)
-      on = substitute.get(day_builder, on)
+    parser.each_days do |parser_day|
+      puts parser_day
+      on = builder_day.get(year, parser_day)
+      on = substitute.get(parser_day.substitute, on)
 
-      ::BankHoliday.create!(name: day_builder.name,
+      ::BankHoliday.create!(name: parser_day.name,
                             on: on,
-                            informal: day_builder.informal?,
-                            place: country)
+                            informal: parser_day.informal?,
+                            place: place)
     end
   end
 
   def substitute
-    @substitute ||= Substitute.new(country)
+    @substitute ||= Builder::Substitute.new(place)
   end
 
-  def day
-    @day ||= Day.new
+  def builder_day
+    @day ||= Builder::Day.new
   end
 end

@@ -37,7 +37,7 @@ class Parser::Day < Struct.new(:yaml_day)
   end
 
   def substitute
-    yaml_day["substitue"]
+    yaml_day["substitute"]
   end
 
 end
