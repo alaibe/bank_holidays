@@ -1,30 +1,14 @@
-div class="jumbotron"
-  div class="container-fluid"
-    div class="row"
-      div class="col-md-6"
-        h1 Bank Holidays
+div class="row"
+  div class="col-md-12"
+    h1 class="text-center" Bank Holidays
 
-      div class="col-md-6"
-        = form_tag bank_holidays_path, method: :get, remote: true, authenticity_token: true, role: 'form', class: 'search-form form-horizontal' do
+  div class="col-md-12"
+    = form_tag bank_holidays_path, method: :get, remote: true, authenticity_token: true, role: 'form', class: 'form-horizontal' do
 
-          = hidden_field_tag :type, :date
+      div class="col-md-offset-3 col-md-6"
+        div class="form-group has-feedback"
+          = text_field_tag :terms, nil, class: 'form-control input-lg', placeholder: 'Search'
+          span class="glyphicon glyphicon-search form-control-feedback"
 
-          div class="form-group date-tag"
-            div class="input-group"
-              = text_field_tag :date, nil, :'data-behaviour' => 'datepicker', class: 'form-control input-lg', placeholder: 'Pick a date'
-
-            = link_to 'Or Choose a year', '#', class: 'switch_form'
-
-          div class="form-group year-tag display-none"
-            div class="input-group"
-              = select_tag :year, options_for_select(BankHoliday.years), :'data-behaviour' => 'select2', class: 'form-control', placeholder: 'Choose a year', include_blank: true
-
-            = link_to 'Or Pick a date', '#', class: 'switch_form'
-
-          div class="form-group"
-            div class="input-group"
-            = select_tag "countries[]", options_from_collection_for_select(Country.activated, 'iso', 'name'), :'data-behaviour' => 'select2', class: 'form-control', placeholder: 'You may choose a country', multiple: true
-
-            = submit_tag 'Go', class: 'btn btn-default btn-lg btn-success'
-
+        span class="help-block" on 2014 in Great-Britain
 div class="results"

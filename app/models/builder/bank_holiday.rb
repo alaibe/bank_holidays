@@ -2,7 +2,6 @@ class Builder::BankHoliday < Struct.new(:parser, :place)
 
   def perform(year)
     parser.each_days do |parser_day|
-      puts parser_day
       on = builder_day.get(year, parser_day)
       on = substitute.get(parser_day.substitute, on)
 

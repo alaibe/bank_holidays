@@ -1,37 +1,27 @@
 class Search
 
-  attr_reader :date, :year, :scope
+  BETWEEN = /between (\d{4}|\d{2}\/\d{2}\/\d{4}) and (\d{4}|\d{2}\/\d{2}\/\d{4})/
+  ON      = /on (\d{4}|\d{2}\/\d{2}\/\d{4})/
 
-  def initialize(date, year, country_isos)
-    @date         = date
-    @year         = year
-    @country_isos = country_isos || []
-    @scope        = BankHoliday
+  attr_reader :scope
+
+  def initialize(terms)
+    @terms = terms
+    @scope = BankHoliday
   end
 
   def all
-    by_date.by_year.by_country.scope
-  end
-
-  def countries
-    @countries ||= Country.where(iso: @country_isos)
-  end
-
-  def states
-    @states ||= State.where(country: countries)
+    by_date.by_country.scope
   end
 
   def by_date
-    return self unless on.present?
-    @scope = @scope.where(on: on)
+    dates = on || between
 
-    self
-  end
-
-  def by_year
-    return self unless year.present?
-    date = Date.new year.to_i
-    @scope = @scope.where(on: date.beginning_of_year..date.end_of_year)
+    if dates.length == 1
+      @scope = @scope.where(on: dates.first)
+    elsif dates.length == 2
+      @scope = @scope.where(on: dates.first.. dates.last)
+    end
 
     self
   end
@@ -52,8 +42,48 @@ class Search
     self
   end
 
+  def between
+    match = BETWEEN.match @terms
+    return if !match || match.length != 3
+
+    before = date_from_string(match[1])
+    after  = date_from_string(match[2])
+
+    before = before.first rescue before
+    after  = after.first rescue after
+
+    [before, after] if before && after
+  end
+
   def on
-    @on ||= Date.parse date rescue nil
+    match = ON.match @terms
+
+    date_from_string(match[1]) if match && match.length == 2
+  end
+
+  def countries
+    @countries ||= in_countries
+  end
+
+  def states
+    @states ||= State.where(country: countries)
+  end
+
+  def in_countries
+    match = /in (.*)/.match @terms
+    return unless match || match.length != 1
+
+    string = match[1].split /, | and /
+    Country.where(name: string) + Country.where(iso: string)
+  end
+
+  def date_from_string(string)
+    if string.length == 4
+      date = Date.new string.to_i
+      [date.beginning_of_year, date.end_of_year]
+    else
+      Date.parse(string) rescue nil
+    end
   end
 
 end

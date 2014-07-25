@@ -40,12 +40,10 @@ gem 'friendly_id'
 gem 'slim'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
-gem 'bootstrap-datepicker-rails'
-gem "select2-rails"
 gem 'rabl'
 gem 'rails_12factor', group: :production
 gem 'puma'
-gem 'svg-flags-rails'
+
 
 gem "pry", group: :development
 gem 'pry-stack_explorer', group: :development

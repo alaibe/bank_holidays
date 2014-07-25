@@ -14,7 +14,3 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
-//= require bootstrap-datepicker
-//= require select2
-
-//= require bank_holidays
