@@ -15,7 +15,7 @@ class Search
   end
 
   def by_date
-    dates = on || between
+    dates = on || between || []
 
     if dates.length == 1
       @scope = @scope.where(on: dates.first)
@@ -49,8 +49,8 @@ class Search
     before = date_from_string(match[1])
     after  = date_from_string(match[2])
 
-    before = before.first rescue before
-    after  = after.first rescue after
+    before = before.first
+    after  = after.first
 
     [before, after] if before && after
   end
@@ -71,10 +71,10 @@ class Search
 
   def in_countries
     match = /in (.*)/.match @terms
-    return unless match || match.length != 1
+    return [] if !match || match.length != 2
 
     string = match[1].split /, | and /
-    Country.where(name: string) + Country.where(iso: string)
+    Country.where(name: string) + Country.where(iso: string) || []
   end
 
   def date_from_string(string)
@@ -82,7 +82,7 @@ class Search
       date = Date.new string.to_i
       [date.beginning_of_year, date.end_of_year]
     else
-      Date.parse(string) rescue nil
+      [Date.parse(string)] rescue []
     end
   end
 
