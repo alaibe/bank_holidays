@@ -74,7 +74,7 @@ class Search
     return [] if !match || match.length != 2
 
     string = match[1].split /, | and /
-    Country.where(name: string) + Country.where(iso: string) || []
+    Country.where(name: string) + Country.where(iso: string.map(&:upcase)) || []
   end
 
   def date_from_string(string)

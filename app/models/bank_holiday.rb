@@ -18,4 +18,13 @@ class BankHoliday < ActiveRecord::Base
   def place_name
     place.fullname
   end
+
+  def name_in_country
+    key = "days.#{name.parameterize('_')}"
+    I18n.t key, locale: country.iso.downcase, default: ''
+  end
+
+  def country
+    place.country rescue place
+  end
 end
