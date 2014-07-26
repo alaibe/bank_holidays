@@ -1,1 +1,6 @@
-= render partial: 'bank_holiday', collection: bank_holidays.all
+div class="row links text-center"
+  = link_to 'JSON', bank_holidays_path(terms: search.terms, format: :json), target: "_blank"
+  |   |  
+  = link_to 'XML', bank_holidays_path(terms: search.terms, format: :xml), target: "_blank"
+
+= render partial: 'bank_holiday', collection: search.all

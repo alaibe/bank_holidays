@@ -3,7 +3,7 @@ class Search
   BETWEEN = /between (\d{4}|\d{2}\/\d{2}\/\d{4}) and (\d{4}|\d{2}\/\d{2}\/\d{4})/
   ON      = /on (\d{4}|\d{2}\/\d{2}\/\d{4})/
 
-  attr_reader :scope
+  attr_reader :terms
 
   def initialize(terms)
     @terms = terms
@@ -11,7 +11,11 @@ class Search
   end
 
   def all
-    by_date.by_country.scope
+    @all ||= by_date.by_country.scope
+  end
+
+  def empty?
+    all.count == 0
   end
 
   def by_date
@@ -42,6 +46,10 @@ class Search
     self
   end
 
+  def scope
+    @scope == BankHoliday ? [] : @scope
+  end
+
   def between
     match = BETWEEN.match @terms
     return if !match || match.length != 3
@@ -50,7 +58,7 @@ class Search
     after  = date_from_string(match[2])
 
     before = before.first
-    after  = after.first
+    after  = after.last
 
     [before, after] if before && after
   end

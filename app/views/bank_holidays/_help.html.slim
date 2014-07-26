@@ -1,0 +1,38 @@
+div class= "row text-center"
+  div class="col-md-4"
+    div class="panel panel-primary"
+      div class="panel-heading" Search by date
+      div class="panel-body"
+        | You can use two differents keywords: "on" and "between", the date format should be dd/mm/yyyy or just a year.
+
+        div class="well well-sm"
+          | on 2014
+        div class="well well-sm"
+          | on 25/12/2014
+        div class="well well-sm"
+          | between 2014 and 2017
+        div class="well well-sm"
+          | between 25/12/2014 and 28/12/2014
+
+  div class="col-md-4"
+    div class="panel panel-primary"
+      div class="panel-heading" Search by country
+      div class="panel-body"
+        | Use the keyword "in", followed by a list of country name or iso code like in the example below
+
+        div class="well well-sm"
+          | in France, gb and US
+
+        | this will search for bank holidays in France, United Kingdom and United States
+  div class="col-md-4"
+    div class="panel panel-primary"
+      div class="panel-heading" List of available country
+
+      ul class="list-group"
+        - Country.activated.each do |country|
+          li class="list-group-item"
+            = country.name
+            |  (
+            = country.iso
+            | )
+      div class="panel-footer" More countries are coming...

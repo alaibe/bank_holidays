@@ -1,1 +1,7 @@
-$(".results").html("<%= escape_javascript(render partial: 'bank_holidays/bank_holidays', locals: { bank_holidays: @bank_holidays }) %>");
+$(".full-size").removeClass('full-size');
+
+<% if @search.empty? %>
+  $(".results").html("<%= escape_javascript(render partial: 'bank_holidays/help') %>");
+<% else %>
+  $(".results").html("<%= escape_javascript(render partial: 'bank_holidays/bank_holidays', locals: { search: @search }) %>");
+<% end %>

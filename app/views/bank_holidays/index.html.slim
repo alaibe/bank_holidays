@@ -1,4 +1,4 @@
-div class="search row"
+div class="search row full-size"
   div class="col-md-12"
     h1 class="text-center" Bank Holidays
 
@@ -7,8 +7,9 @@ div class="search row"
 
       div class="col-md-offset-3 col-md-6"
         div class="form-group has-feedback"
-          = text_field_tag :terms, nil, class: 'form-control input-lg', placeholder: 'Search'
+          = text_field_tag :terms, nil, class: 'form-control input-lg', placeholder: 'Search: e.g. on 2014 in GB'
           span class="glyphicon glyphicon-search form-control-feedback"
 
-        span class="help-block" on 2014 in Great-Britain
+        span class="help-block" Search "help" for a list of syntax that can be used to fine-tune your search-queries
+
 div class="results"

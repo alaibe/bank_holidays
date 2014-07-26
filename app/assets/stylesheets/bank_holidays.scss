@@ -3,14 +3,36 @@
   src: url("harabara.otf");
 }
 
-h1 {
-  font-family: 'harabara';
-  font-size: 60px;
-  margin-bottom: 50px;
+.search {
+  background-image: linear-gradient(to left, #507CA8 0%, #70A2CA 61%);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  h1 {
+    font-family: 'harabara';
+    font-size: 60px;
+    margin-bottom: 50px;
+  }
 }
 
-.search {
+.full-size {
+  position: absolute;
+  top:0;
+  bottom:0;
+  right:0;
+  left:0;
+  overflow:hidden;
+  background-image: linear-gradient(to left, #507CA8 0%, #70A2CA 61%);
   padding-top: 100px;
   padding-bottom: 100px;
-  background-image: linear-gradient(to left, #507CA8 0%, #70A2CA 61%);
+}
+
+.results {
+  margin-top: 20px;
+  .links {
+    margin-bottom: 20px;
+  }
+
+  .panel-primary .panel-heading {
+    background-image: linear-gradient(to left, #507CA8 0%, #70A2CA 61%);
+  }
 }
