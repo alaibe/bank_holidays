@@ -1,6 +1,6 @@
 div class="search row full-size"
   div class="col-md-12"
-    h1 class="text-center" Bank Holidays
+    h1 class="text-center" = link_to 'Bank Holidays', root_path
 
   div class="col-md-12"
     = form_tag bank_holidays_path, method: :get, remote: true, authenticity_token: true, role: 'form', class: 'form-horizontal' do
