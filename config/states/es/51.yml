@@ -1,0 +1,7 @@
+---
+days:
+  - name: Andalucía Day
+    day: 28
+    month: 2
+  - name: Maundy Thursday
+    method: easter_day(year) - 3.days

@@ -1,0 +1,13 @@
+---
+days:
+  - name: Easter Monday
+    method: easter_day(year) + 1.day
+  - name: St. John's Day
+    day: 24
+    month: 6
+  - name: National Day of Catalonia
+    day: 11
+    month: 9
+  - name: St. Stephen's Day
+    day: 26
+    month: 12

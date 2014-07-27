@@ -1,0 +1,31 @@
+---
+days:
+  - name: New Year’s Day
+    day: 1
+    month: 1
+  - name: Epiphany
+    day: 6
+    month: 1
+  - name: Good Friday
+    method: easter_day(year) - 2.days
+  - name: Labour Day
+    month: 5
+    day: 1
+  - name: Assumption of Mary to Heaven
+    month: 8
+    day: 15
+  - name: Fiesta Nacional de España
+    day: 12
+    month: 10
+  - name: All Saints' Day
+    month: 11
+    day: 1
+  - name: Constitution Day
+    month: 12
+    day: 6
+  - name: Immaculate Conception
+    month: 12
+    day: 8
+  - name: Christmas Day
+    day: 25
+    month: 12

@@ -1,0 +1,10 @@
+---
+days:
+  - name: St. Joseph's Day
+    day: 19
+    month: 3
+  - name: Maundy Thursday
+    method: easter_day(year) - 3.days
+  - name: Castilla-La Mancha Day
+    day: 31
+    month: 5

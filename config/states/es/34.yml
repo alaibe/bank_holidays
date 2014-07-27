@@ -1,0 +1,10 @@
+---
+days:
+  - name: St. Joseph's Day
+    month: 3
+    day: 19
+  - name: Maundy Thursday
+    method: easter_day(year) - 3.days
+  - name: Asturias Day
+    month: 9
+    day: 8

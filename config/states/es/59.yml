@@ -1,0 +1,9 @@
+---
+days:
+  - name: Maundy Thursday
+    method: easter_day(year) - 3.days
+  - name: Easter Monday
+    method: easter_day(year) + 1.day
+  - name: Euskadi Eguna
+    month: 10
+    day: 25

@@ -1,0 +1,7 @@
+---
+days:
+  - name: Maundy Thursday
+    method: easter_day(year) - 3.days
+  - name: Extremadura Day
+    day: 8
+    month: 9

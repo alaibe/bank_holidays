@@ -1,0 +1,7 @@
+---
+days:
+  - name: Maundy Thursday
+    method: easter_day(year) - 3.days
+  - name: Canarias Day
+    day: 30
+    month: 5

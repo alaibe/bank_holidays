@@ -1,0 +1,12 @@
+---
+days:
+  - name: St. Joseph's Day
+    month: 3
+    day: 19
+  - name: Maundy Thursday
+    method: easter_day(year) - 3.days
+  - name: Murcia Day
+    month: 6
+    day: 9
+  - name: Corpus Christi
+    method: easter_day(year) + 60.days

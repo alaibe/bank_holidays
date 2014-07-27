@@ -1,0 +1,7 @@
+---
+days:
+  - name: Maundy Thursday
+    method: easter_day(year) - 3.days
+  - name: Ceuta Day
+    day: 2
+    month: 9
