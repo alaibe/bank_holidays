@@ -217,7 +217,7 @@ Country.create!(name: 'Somalia', iso: 'SO')
 Country.create!(name: 'South Africa', iso: 'ZA')
 Country.create!(name: 'South Georgia and the South Sandwich Islands', iso: 'GS')
 Country.create!(name: 'South Sudan', iso: 'SS')
-Country.create!(name: 'Spain', iso: 'ES')
+Country.create!(name: 'Spain', iso: 'ES', activated: true)
 Country.create!(name: 'Sri Lanka', iso: 'LK')
 Country.create!(name: 'Sudan', iso: 'SD')
 Country.create!(name: 'Suriname', iso: 'SR')
@@ -304,7 +304,7 @@ State.create(iso: "59", name: "Basque Country", country_id: es.id)
 State.create(iso: "39", name: "Cantabria", country_id: es.id)
 State.create(iso: "60", name: "Valencia", country_id: es.id)
 
-years = (1990..2100).to_a
+years = (2010..2030).to_a
 Country.where(activated: true).each do |country|
   years.each do |year|
     country.generate(year)
