@@ -43,7 +43,7 @@ gem 'autoprefixer-rails'
 gem 'rabl'
 gem 'rails_12factor', group: :production
 gem 'puma'
-
+gem 'newrelic_rpm'
 
 gem "pry", group: :development
 gem 'pry-stack_explorer', group: :development
