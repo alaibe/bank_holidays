@@ -1,5 +1,3 @@
-$(".full-size").removeClass('full-size');
-
 <% if @search.empty? %>
   $(".results").html("<%= escape_javascript(render partial: 'bank_holidays/help') %>");
 <% else %>

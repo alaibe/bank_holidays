@@ -11,7 +11,7 @@ class Search
   end
 
   def all
-    @all ||= by_date.by_country.scope
+    @all ||= by_date.by_country.order.scope
   end
 
   def empty?
@@ -43,6 +43,11 @@ class Search
     end
     @scope = @scope.where(id: ids)
 
+    self
+  end
+
+  def order
+    @scope= @scope.order(:on)
     self
   end
 
